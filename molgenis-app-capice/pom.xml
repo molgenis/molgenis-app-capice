@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.molgenis</groupId>
     <artifactId>molgenis-capice</artifactId>
-    <version>7.4.1-CAPICE-1.0.0-SNAPSHOT</version>
+    <version>7.4.9-CAPICE-1.0.0</version>
   </parent>
   <artifactId>molgenis-app-capice</artifactId>
   <packaging>war</packaging>
