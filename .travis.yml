@@ -1,0 +1,30 @@
+os: linux
+dist: bionic
+language: java
+jdk: openjdk11
+cache:
+  directories:
+    - "$HOME/.m2"
+branches:
+  only:
+    - master
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/ 
+addons:
+  sonarcloud:
+    organization: molgenis
+    token:
+      secure: thijS+/Fb4bK4wIXjkDWA43pZ4Hv3jDHkrrVp9cUgSLMIy2V8SiNMgGuRv+cL19ilzZA3Z4SiCIDF1GuGvrcqU2L0McOALL8lS+RhREf+5ZmZ+X1+3+tzK4COpr2qZ8t+zQ9JmYC6BZzbdgCSLc5Enios7sTaWsNIk2LKKXaBix9SLEt+Bu2x6sbp9GbwwRNE5sendtBczOsm2h7cvJLAhBIuvj9tQeGJwsqSaqxaMAMwRNbtFKF5lR3PxtC1Cj3f/7+nFkSTA7cYcOByqKnPLFcKumrZ6vxRhjgk6kg33mfbqPEpFXdpV18qMr01ZD0Wc11EzWLQ869kN6vq6gixnmMlkHoAPBmZfCRmtrT4KpQu8i7VSwtxiR4MAh9mbgL3vRFvgZ2kvOxuVSxdeNxrJlmQ64zRGf3jd1/Gl5C+7tQKNjxMg5f++cVSR0iPuPtjIs7AtHkNCi7a+jnPzpEX0Y2/ESEEzMvBk01yVqZakRiwUt4U7AsmcD/Bw9tWjmIW10xpw1b3thuYZiHhDZLpLJR1Jhb5Jaoq0dgxad/6I+LJYWgEgO/5M5sRqYVMj7pGjzkOL31nCEqrQSjxmrSdQrc5AdaPFAw0UITFo4UrM/c8H0lSejjRksxH295HKFmWTgfoJECeCypw4oLWYn3mN4WWPHsxMcRzrc+vhB4XqU=
+script:
+  - mvn clean install sonar:sonar -Pcoverage -Dsonar.projectKey=org.molgenis:molgenis-vibe
+before_deploy:
+  - export WAR=$(ls molgenis-app-vibe/target/molgenis-app-vibe-*.war)
+deploy:
+  provider: releases
+  token:
+    secure: euf3qNZmYAP0rNdF+XvpOFI+oMwa2JXZPjb1XNedWUbYN2iswPocgl1GUhfRVC+BdOucfmspZVUoc+RVZS00W94iD19tkrWx5sELBuI8m680T9RVAigrSoECHcqgBdNGkmOlN+S65XNjmGSGnBqEKirjr2n+Kt9wdEfgy+vqWrTxAlZwZY7dOQsUXhh8Znp457ugBmLGzzEuyX7wPiza3FgKkhyf/Mm1PMlqkT8kxNlsqryi4I4gj3sfs79aWsVg/m3cxLgJEFeIw2QffYa8uZF/oibVpAcIxWxkpsnzoTZdCa8ha9IOhJpXC8CWFzg0fJ9RrkqjQ8pi/Z5tqa+UumALYHFAUU90Gu5P180z1sC+UfUxme98vxpRd09SULoLrKq7eYEFgVTgsGdkou3qb0DeKuViLYVuOCHvhgM5Ik0QjiY/046j8PJlssfdknsfel0Rx6pFbYJq+SzwaOP0FmlNipdUWC4svE6fcQI8RGI9PotMXTV4/t2aJY/L2tuAjEWkbJ8xCUxdeBVN85iDjT/3qVG6iGWbhOdc51qFItNwZTFF/gKeGR51PVJcrIdGOEhCLC4JO1+AaD46UAN/Lll1k5ML5kN9BZSdP7D5vCrlXj7/0e/FYEuo7Zy4ELbsCqZKk86+K8hSDRG5wqudtNb4C3J6cTuPQggTy0NIJO8=
+  file: "${WAR}"
+  prerelease: true
+  on:
+    tags: true
+    condition: ${TRAVIS_TAG} =~ ^v[0-9]+\.[0-9]+\.[0-9]+$
+  edge: true # opt in to dpl v2
