@@ -45,6 +45,11 @@
     </developer>
   </developers>
 
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/molgenis/molgenis-app-capice/issues</url>
+  </issueManagement>
+
   <properties>
     <molgenis.version>7.4.9</molgenis.version>
 
