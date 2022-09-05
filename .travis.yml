@@ -15,9 +15,9 @@ addons:
     token:
       secure: thijS+/Fb4bK4wIXjkDWA43pZ4Hv3jDHkrrVp9cUgSLMIy2V8SiNMgGuRv+cL19ilzZA3Z4SiCIDF1GuGvrcqU2L0McOALL8lS+RhREf+5ZmZ+X1+3+tzK4COpr2qZ8t+zQ9JmYC6BZzbdgCSLc5Enios7sTaWsNIk2LKKXaBix9SLEt+Bu2x6sbp9GbwwRNE5sendtBczOsm2h7cvJLAhBIuvj9tQeGJwsqSaqxaMAMwRNbtFKF5lR3PxtC1Cj3f/7+nFkSTA7cYcOByqKnPLFcKumrZ6vxRhjgk6kg33mfbqPEpFXdpV18qMr01ZD0Wc11EzWLQ869kN6vq6gixnmMlkHoAPBmZfCRmtrT4KpQu8i7VSwtxiR4MAh9mbgL3vRFvgZ2kvOxuVSxdeNxrJlmQ64zRGf3jd1/Gl5C+7tQKNjxMg5f++cVSR0iPuPtjIs7AtHkNCi7a+jnPzpEX0Y2/ESEEzMvBk01yVqZakRiwUt4U7AsmcD/Bw9tWjmIW10xpw1b3thuYZiHhDZLpLJR1Jhb5Jaoq0dgxad/6I+LJYWgEgO/5M5sRqYVMj7pGjzkOL31nCEqrQSjxmrSdQrc5AdaPFAw0UITFo4UrM/c8H0lSejjRksxH295HKFmWTgfoJECeCypw4oLWYn3mN4WWPHsxMcRzrc+vhB4XqU=
 script:
-  - mvn clean install sonar:sonar -Pcoverage -Dsonar.projectKey=org.molgenis:molgenis-vibe
+  - mvn clean install sonar:sonar -Pcoverage -Dsonar.projectKey=org.molgenis:molgenis-app-capice
 before_deploy:
-  - export WAR=$(ls molgenis-app-vibe/target/molgenis-app-vibe-*.war)
+  - export WAR=$(ls molgenis-app-capice/target/molgenis-app-capice-*.war)
 deploy:
   provider: releases
   token:
