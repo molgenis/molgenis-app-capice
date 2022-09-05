@@ -83,7 +83,7 @@
 
     <!-- override dependency versions managed by parent pom -->
     <elasticsearch.version>5.5.1</elasticsearch.version>
-    <postgresql.version>9.4.1211</postgresql.version>
+    <postgresql.version>42.5.0</postgresql.version>
     <testng.version>6.8</testng.version>
     <guava.version>25.0-jre</guava.version>
 
