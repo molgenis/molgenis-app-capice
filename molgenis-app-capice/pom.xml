@@ -4,20 +4,20 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.molgenis</groupId>
-    <artifactId>molgenis-gavin2</artifactId>
-    <version>7.4.1-GAVIN2-1.0.0-SNAPSHOT</version>
+    <artifactId>molgenis-capice</artifactId>
+    <version>7.4.1-CAPICE-1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>molgenis-app-gavin2</artifactId>
+  <artifactId>molgenis-app-capice</artifactId>
   <packaging>war</packaging>
 
-  <name>app-gavin2</name>
-  <description>App containing the Gavin API.</description>
+  <name>app-capice</name>
+  <description>App containing the CAPICE API.</description>
 
   <properties>
     <owasp-check-format>HTML</owasp-check-format>
     <dockerfile-maven-version>1.4.0</dockerfile-maven-version>
     <dockerfile.tag>${project.version}</dockerfile.tag>
-    <dockerfile.repository>registry.hub.docker.com/molgenis/molgenis-app-gavin2
+    <dockerfile.repository>registry.hub.docker.com/molgenis/molgenis-app-capice
     </dockerfile.repository>
     <dockerfile.warfile.version>${project.version}</dockerfile.warfile.version>
     <dockerfile.warfile>target/${project.artifactId}-${dockerfile.warfile.version}.war

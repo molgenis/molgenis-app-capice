@@ -4,7 +4,7 @@ import static java.util.Arrays.asList;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.molgenis.app.gavin.meta.GavinRunMetadata.GAVIN_RUN;
 import static org.molgenis.data.file.model.FileMetaMetaData.FILE_META;
@@ -161,7 +161,7 @@ public class GavinControllerTest extends AbstractMockitoTest {
     controller.downloadErrorFile(httpServletResponse, "id");
 
     verify(gavinService).get("id");
-    verifyZeroInteractions(fileStore);
+    verifyNoInteractions(fileStore);
     verify(httpServletResponse).setStatus(HttpServletResponse.SC_NOT_FOUND);
   }
 

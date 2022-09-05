@@ -4,12 +4,12 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.molgenis</groupId>
-  <artifactId>molgenis-gavin2</artifactId>
-  <version>7.4.1-GAVIN2-1.0.0-SNAPSHOT</version>
+  <artifactId>molgenis-capice</artifactId>
+  <version>7.4.1-CAPICE-1.0.0-SNAPSHOT</version>
   <parent>
-    <groupId>io.spring.platform</groupId>
-    <artifactId>platform-bom</artifactId>
-    <version>Cairo-SR6</version>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.7.3</version>
   </parent>
   <packaging>pom</packaging>
 
@@ -46,7 +46,7 @@
   </developers>
 
   <properties>
-    <molgenis.version>7.4.1</molgenis.version>
+    <molgenis.version>7.4.9</molgenis.version>
 
     <!-- authentication for release scm plugin -->
     <project.scm.id>github</project.scm.id>
@@ -89,6 +89,7 @@
 
     <!-- dependency versions not managed by parent pom -->
     <google.auto-value.version>1.4.1</google.auto-value.version>
+    <google.jsr305.version>3.0.2</google.jsr305.version>
     <apache.rdf4j.version>2.0.2</apache.rdf4j.version>
     <google-api-client.version>1.21.0</google-api-client.version>
     <aerogear-otp-java.version>1.0.0</aerogear-otp-java.version>
@@ -112,7 +113,7 @@
 
     <!-- test-dependency versions not managed by parent pom -->
     <jsonpath.version>2.4.0</jsonpath.version>
-    <mockito.version>2.7.22</mockito.version>
+    <mockito.version>4.7.0</mockito.version>
     <hamcrest-all.version>1.3</hamcrest-all.version>
     <awaitility.version>3.0.0</awaitility.version>
     <greenmail-webapp.version>1.5.5</greenmail-webapp.version>
@@ -123,7 +124,7 @@
     <swagger-maven-plugin.version>3.1.5</swagger-maven-plugin.version>
     <jaxb2-maven-plugin.version>1.5</jaxb2-maven-plugin.version>
     <jaxws-maven-plugin.version>2.1</jaxws-maven-plugin.version>
-    <jacoco-maven-plugin.version>0.8.1</jacoco-maven-plugin.version>
+    <jacoco-maven-plugin.version>0.8.8</jacoco-maven-plugin.version>
     <properties-maven-plugin.version>1.0-alpha-2</properties-maven-plugin.version>
     <minify-maven-plugin.version>1.7.4</minify-maven-plugin.version>
     <extra-enforcer-rules.version>1.0-beta-6</extra-enforcer-rules.version>
@@ -144,8 +145,8 @@
     <elasticsearch.cluster.name>molgenis</elasticsearch.cluster.name>
     <zt-zip.version>1.13</zt-zip.version>
     <fmt-maven-plugin.version>2.5.1</fmt-maven-plugin.version>
-    <maven-checkstyle-plugin.version>3.0.0</maven-checkstyle-plugin.version>
-    <checkstyle.version>8.12</checkstyle.version>
+    <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
+    <checkstyle.version>10.3.3</checkstyle.version>
     <sonar-maven-plugin.version>3.5.0.1254</sonar-maven-plugin.version>
     <sentry.version>1.7.5</sentry.version>
     <sentry-logback.version>1.7.14</sentry-logback.version>
@@ -195,13 +196,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${maven-checkstyle-plugin.version}</version>
-          <dependencies>
-            <dependency>
-              <groupId>com.puppycrawl.tools</groupId>
-              <artifactId>checkstyle</artifactId>
-              <version>${checkstyle.version}</version>
-            </dependency>
-          </dependencies>
           <executions>
             <execution>
               <phase>validate</phase>
@@ -1002,6 +996,11 @@
         <artifactId>poi-ooxml-schemas</artifactId>
         <version>${poi-ooxml-schemas.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>${google.jsr305.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -1026,6 +1025,6 @@
   </dependencies>
 
   <modules>
-    <module>molgenis-app-gavin2</module>
+    <module>molgenis-app-capice</module>
   </modules>
 </project>

@@ -124,6 +124,6 @@ public class ParserTest {
   public void testTransformSkipsLinesWhenMaxLinesProcessed() {
     Assert.assertEquals(
         lineParser.transformLine("", 120000, 100000, output, error), LineType.SKIPPED);
-    Mockito.verifyZeroInteractions(output, error);
+    Mockito.verifyNoInteractions(output, error);
   }
 }
