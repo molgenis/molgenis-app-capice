@@ -90,7 +90,7 @@
     <elasticsearch.version>5.5.1</elasticsearch.version>
     <postgresql.version>42.5.0</postgresql.version>
     <testng.version>6.8</testng.version>
-    <guava.version>25.0-jre</guava.version>
+    <guava.version>32.0.0-jre</guava.version>
     <byte-buddy.version>1.12.14</byte-buddy.version>
 
     <!-- dependency versions not managed by parent pom -->
